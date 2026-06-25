@@ -41,7 +41,7 @@ R scripts supporting the study "Urban bird assemblages are shaped by the regiona
 
 ### Data analysis and visualization
 Each script performs analysis and produces plot related to a studied pattern.
-Data used as input in these scripts are produces with [*6_Finalizing_AbundanceMatrix.R*]('Data Processsing'/6_Finalizing_AbundanceMatrix.R)
+Data used as input in these scripts are produces with [*6_Finalizing_AbundanceMatrix.R*](Data Processsing/6_Finalizing_AbundanceMatrix.R)
 
 [^1]: Buchhorn, M., Smets, B., Bertels, L., Roo, B.D., Lesiv, M., Tsendbazar, N.-E., et al. (2020). Copernicus Global Land Service: Land Cover 100m: collection 3: epoch 2015: Globe.
 
