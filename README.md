@@ -8,14 +8,14 @@ R scripts supporting the study "Urban bird assemblages are shaped by the regiona
 * **Output :** first round of filtered data + list of "valid" observers (with at least 10 complete checklists across the continent)
     
 #### 2_Data_Split.R
-* **Input :** first round of filtered data from *1_Data_Extraction.R* and list of studied species (acceptedTaxa.txt)
+* **Input :** first round of filtered data from *1_Data_Extraction.R* + ecoregion shapefile[^1] + list of studied species (acceptedTaxa.txt)
 * Split data by ecoregion
 * Removing checklists (sampling) created during night-time and with more than 2 observers
 * Filtering observations (ebd) according to the species (see acceptedTaxa.txt)
 * **Output :** second round of filtered data (sampling + ebd) split by ecoregions (283).
     
 #### 3_Calculation_Urban-Rich.R
-* **Input :** second round of filtered data from *2_Data_Split.R* + built-up raster layer[^1]
+* **Input :** second round of filtered data from *2_Data_Split.R* + built-up raster layer[^2]
 * Filtering checklists according the number of observers (only one)
 * Computing average urbanisation rate with two buffers (1 an 3km) around the checklist
 * Filtering checklists with an urban rate "NotAttributed" (sea, lakes)
@@ -34,26 +34,31 @@ R scripts supporting the study "Urban bird assemblages are shaped by the regiona
 * **Output :** fifth round of filtered data (sampling + ebd) split by ecoregions (226).
     
 #### 5_Selection_UrbanNurban.R
-* **Input :** fifth round of filtered data from *4_Filtering_ScoreDurationDistance.R* + vector layer of the coastline[^2] (50m resolution) + digital elevation model[^3] (1km resolution)
+* **Input :** fifth round of filtered data from *4_Filtering_ScoreDurationDistance.R* + vector layer of the coastline[^3] (50m resolution) + digital elevation model[^4] (1km resolution)
 * Defininf coastline distance and elevation of checklist
 * Computing euclidean distance between urban and non-urban checklists
 * **Output :** appaired checklists (urban and rural) for 138 ecoregions (including 69 with less than 20 pairs)
 
 #### 6_Finalizing_AbundanceMatrix.R
-* **Input:** fifth round of filtered observations from *4_Filtering_ScoreDurationDistance.R* and appaired checklists from *5_Selection_UrbanNurban.R*
+* **Input :** fifth round of filtered observations from *4_Filtering_ScoreDurationDistance.R* and appaired checklists from *5_Selection_UrbanNurban.R*
 * Get the species of selected checklists and counting their occurence to design the final dataset
-* **Output :** two files per ecoregion containing the observations of the 20 urban and 20 non-urban selected checklists
-*
-  frequency of each species (in row) in the 40 urban and non-urban selected checklists.
+* **Output :** two files per ecoregion containing the observations of the 20 urban and 20 non-urban selected checklists.
 
 
 ### Data analysis and visualization
-Each script performs analysis and produces plot related to a studied pattern.
-Data used as input in these scripts are produces with *6_Finalizing_AbundanceMatrix.R*.
+#### 7_PRE-ANALYSIS_DistanceComputation.R
+* **Input :** urban and non-urban observations from *6_Finalizing_AbundanceMatrix.R*.
+* Performing basic statistics about the urban and non-urban assemblages of each ecoregion (number of strictly urban and strictly non-urban species, number of species common between assemblages).
+* Computing Jaccard and Bray-Curtis distance between urban and non-urban assemblages of each ecoregion.
+* **Output :** statistics concerning assemblages of each ecoregion (in rows) + final dataset presenting the frequency of each species (in rows) in the 20 selected pairs of checklists (urban and non-urban) defining the assemblage, for each ecoregion (two columns per ecoregion). This dataset is available here...
+
+The other scripts perform analysis and produce plot related to the studied patterns. They used data produced with *7_PRE-ANALYSIS_DistanceComputation.R* and the ecoregion shapefile[^1].
 
 
-[^1]: Buchhorn, M., Smets, B., Bertels, L., Roo, B.D., Lesiv, M., Tsendbazar, N.-E., et al. (2020). Copernicus Global Land Service: Land Cover 100m: collection 3: epoch 2015: Globe.
+[^1]: Olson, D.M., Dinerstein, E., Wikramanayake, E.D., Burgess, N.D., Powell, G.V.N., Underwood, E.C., et al. (2001). *Terrestrial ecoregions of the world: A new map of life on Earth.* **Bioscience**, 51, 933–938.
 
-[^2]: Natural Earth. (2009). *Coastline - Free vector and raster map data at 1:50m scale. Version 4.0.0.* Available at: https://www.naturalearthdata.com/downloads/50m-physical-vectors/50m-coastline/. Last accessed 1 March 2022.
+[^2]: Buchhorn, M., Smets, B., Bertels, L., Roo, B.D., Lesiv, M., Tsendbazar, N.-E., et al. (2020). Copernicus Global Land Service: Land Cover 100m: collection 3: epoch 2015: Globe.
 
-[^3]: Earth Resources Observation and Science (EROS) Center. (2017). Global 30 Arc-Second Elevation (GTOPO30).
+[^3]: Natural Earth. (2009). *Coastline - Free vector and raster map data at 1:50m scale. Version 4.0.0.* Available at: https://www.naturalearthdata.com/downloads/50m-physical-vectors/50m-coastline/. Last accessed 1 March 2022.
+
+[^4]: Earth Resources Observation and Science (EROS) Center. (2017). Global 30 Arc-Second Elevation (GTOPO30).
