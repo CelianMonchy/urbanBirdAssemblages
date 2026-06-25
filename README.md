@@ -1,5 +1,5 @@
 # Urban bird assemblages are shaped by the regional pool
-R scripts supporting the study "Urban bird assemblages are shaped by the regional pool" by C. Monchy &amp; A. Rodrigues
+R scripts supporting the study "Urban bird assemblages are shaped by the regional pool" by C. Monchy &amp; A. Rodrigues.
 
 ### Data processing
 #### 1_Data_Extraction.R
