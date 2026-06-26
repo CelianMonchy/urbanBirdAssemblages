@@ -47,7 +47,7 @@ R scripts supporting the study "Urban bird assemblages are shaped by the regiona
 
 ### Data analysis and visualization
 #### 7_PRE-ANALYSIS_DistanceComputation.R
-* **Input :** urban and non-urban observations from [6_Finalizing_AbundanceMatrix.R](./"Data Processsing"/6_Finalizing_AbundanceMatrix.R).
+* **Input :** urban and non-urban observations from [6_Finalizing_AbundanceMatrix.R](./Data Processsing/6_Finalizing_AbundanceMatrix.R).
 * Performing basic statistics about the urban and non-urban assemblages of each ecoregion (number of strictly urban and strictly non-urban species, number of species common between assemblages).
 * Computing Jaccard and Bray-Curtis distance between urban and non-urban assemblages of each ecoregion.
 * **Output :** statistics concerning assemblages of each ecoregion (in rows) + final dataset presenting the frequency of each species (in rows) in the 20 selected pairs of checklists (urban and non-urban) defining the assemblage, for each ecoregion (two columns per ecoregion). This dataset is available here...
