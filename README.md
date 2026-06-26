@@ -50,9 +50,9 @@ R scripts supporting the study "Urban bird assemblages are shaped by the regiona
 * **Input :** urban and non-urban observations from *6_Finalizing_AbundanceMatrix.R*.
 * Performing basic statistics about the urban and non-urban assemblages of each ecoregion (number of strictly urban and strictly non-urban species, number of species common between assemblages).
 * Computing Jaccard and Bray-Curtis distance between urban and non-urban assemblages of each ecoregion.
-* **Output :** statistics concerning assemblages of each ecoregion (in rows) + final dataset presenting the frequency of each species (in rows) in the 20 selected pairs of checklists (urban and non-urban) defining the assemblage, for each ecoregion (two columns per ecoregion). This dataset is available here...
+* **Output :** statistics concerning assemblages of each ecoregion (in rows) + final dataset presenting the frequency of each species (in rows) in the 20 selected pairs of checklists (urban and non-urban) defining the assemblage, for each ecoregion (two columns per ecoregion). This final dataset presenting the bird assemblages is available here https://doi.org/10.6084/m9.figshare.32802983.
 
-The other scripts perform analysis and produce plot related to the studied patterns. They used data produced with *7_PRE-ANALYSIS_DistanceComputation.R* and the ecoregion shapefile[^1].
+The other scripts perform analysis and produce plots related to the studied patterns using output from *7_PRE-ANALYSIS_DistanceComputation.R* and the ecoregion shapefile[^1].
 
 
 [^1]: Olson, D.M., Dinerstein, E., Wikramanayake, E.D., Burgess, N.D., Powell, G.V.N., Underwood, E.C., et al. (2001). *Terrestrial ecoregions of the world: A new map of life on Earth.* **Bioscience**, 51, 933–938.
